@@ -1,0 +1,86 @@
+<div class="container-fluid">
+
+    <!-- <ng-progress></ng-progress> -->
+    <div class="d-flex flex-column justify-content-center align-items-center">
+        <img src="https://img.stackshare.io/service/683/sBsvBbjY.png" alt="" width="150" height="150">
+        <h1>~ GIT SEARCH ~</h1>
+
+        <form class="enter" >
+            <div class="form-group">
+                <input type="text" placeholder="search user" class="text-center "  name="username"
+                    width="">
+                <button id="bt" class="view btn btn-outline-none" type="submit">Search</button>
+
+            </div>
+        </form>
+
+    </div>
+
+    <div *ngIf="profile">
+
+        <div class="row">
+
+            <div class="col-sm-5 text-center">
+                <img class="img rounded-circle" src="{{profile.avatar_url}}" width="50%">
+
+
+                <div>
+                    <p *ngIf="profile.bio">{{profile.bio}}</p>
+                    <a href="">
+                        <p *ngIf="profile.blog">{{profile.blog}}</p>
+                    </a>
+                    <p *ngIf="profile.location">
+                        {{profile.location}}</p>
+                    <p *ngIf="profile.email">{{profile.email}}</p>
+                </div>
+
+                <div class="inform">
+                    <h3>User Details</h3>
+                    <p>Number of Repos : <span class="hi">{{profile.public_repos}}</span> </p>
+                    <p>Followers : <span class="hi">{{profile.followers}} </span></p>
+
+                    <p>Following :<span class="hi"> {{profile.following}}</span></p>
+
+
+                    <p id="last">
+
+                        <a href="{{profile.html_url}}" target="_blank"><button>View profile on github.com </button></a>
+
+
+                    </p>
+
+
+                </div>
+
+            </div>
+
+
+
+            <div class="col-sm-6">
+                <h4 class="text text-center">Repositories</h4>
+                <div>
+                    <div class="card" *ngFor="let repos of repos">
+
+                        <div>
+                            <div class=" text-center">
+                                <h5> {{repos.name}} </h5>
+                            </div>
+
+                            <div class="card-body">
+                                <p> {{repos.description}} </p>
+                            </div>
+                            <a href="{{profile.html_url}}" class="view_repo btn btn-outline-primary text-center"
+                                target="_blank">
+                                View on GitHub </a>
+                            <small class="date">
+                                Created on : {{ repos.created_at | date }}
+                            </small>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
