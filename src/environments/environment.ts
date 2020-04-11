@@ -4,7 +4,9 @@
 
 export const environment = {
   production: false,
-  apiKey:' ba5cb63eb4a8da9dcebc411cfe1ef6ad7e45018f'
+  client_id:"1ee58e0da14a03143381",
+  client_secret:"2a1a26109d90db2de7ccf41934bfb518b313c0e6",
+  apiKey:'4c9fb52d502b0a4b20c16abf26f71bd53fa34514'
 
 };
 

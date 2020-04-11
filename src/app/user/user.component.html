@@ -1,14 +1,12 @@
-<div class="container-fluid">
+<div id="toop" class="container-fluid">
 
-    <!-- <ng-progress></ng-progress> -->
     <div class="d-flex flex-column justify-content-center align-items-center">
         <img src="https://img.stackshare.io/service/683/sBsvBbjY.png" alt="" width="150" height="150">
         <h1>~ GIT SEARCH ~</h1>
-
-        <form class="enter" >
+        <form class="enter" (ngSubmit)='searchProfile()' #gitForm='ngForm' name="gitForm">
             <div class="form-group">
-                <input type="text" placeholder="search user" class="text-center "  name="username"
-                    width="">
+                <input type="text" placeholder="Search user" class="text-center " [(ngModel)]="username"
+                    name="username" width="">
                 <button id="bt" class="view btn btn-outline-none" type="submit">Search</button>
 
             </div>
@@ -24,9 +22,9 @@
                 <img class="img rounded-circle" src="{{profile.avatar_url}}" width="50%">
 
 
-                <div>
+                <div id="prof">
                     <p *ngIf="profile.bio">{{profile.bio}}</p>
-                    <a href="">
+                    <a href="" style="color: blue;">
                         <p *ngIf="profile.blog">{{profile.blog}}</p>
                     </a>
                     <p *ngIf="profile.location">
@@ -35,17 +33,17 @@
                 </div>
 
                 <div class="inform">
-                    <h3>User Details</h3>
+                    <h3>Profile Details</h3>
                     <p>Number of Repos : <span class="hi">{{profile.public_repos}}</span> </p>
                     <p>Followers : <span class="hi">{{profile.followers}} </span></p>
 
-                    <p>Following :<span class="hi"> {{profile.following}}</span></p>
+                    <p>Following :<span class="hi"> {{profile.following}}</span> </p>&nbsp;
 
 
                     <p id="last">
 
-                        <a href="{{profile.html_url}}" target="_blank"><button>View profile on github.com </button></a>
-
+                        <a href="{{profile.html_url}}" target="_blank">
+                            View profile on github.com </a>
 
                     </p>
 
@@ -54,24 +52,24 @@
 
             </div>
 
-
+            <div class="col-sm-1"></div>
 
             <div class="col-sm-6">
-                <h4 class="text text-center">Repositories</h4>
-                <div>
-                    <div class="card" *ngFor="let repos of repos">
+                <h4 id="reps" class="text text-center">Repositories</h4>
+                <div id="repositories">
+                    <div id="cad" class="card" *ngFor="let repos of repos">
 
-                        <div>
+                        <div class="cad">
                             <div class=" text-center">
-                                <h5> {{repos.name}} </h5>
+                                <h5 id="reponame"> {{repos.name}} </h5>
                             </div>
 
                             <div class="card-body">
-                                <p> {{repos.description}} </p>
+                                <p id="repodescription"> {{repos.description}} </p>
                             </div>
-                            <a href="{{profile.html_url}}" class="view_repo btn btn-outline-primary text-center"
+                            <button><a href="{{profile.html_url}}" class="view_repo btn btn-outline-primary text-center"
                                 target="_blank">
-                                View on GitHub </a>
+                                View on GitHub </a></button>
                             <small class="date">
                                 Created on : {{ repos.created_at | date }}
                             </small>
